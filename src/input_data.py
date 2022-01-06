@@ -18,14 +18,15 @@ def input_data(file: str):
 
     Returns
     -------
+    data_filt : pandas.DataFrame
+        データから名義変数を取り除いたデータ
 
-    data : pandas.DataFrame
+    data : numpy.ndarray
         入力データを標準化したデータ
 
         列は[`mean`,`median`,`max`,`min`,`membership_period`]
     """
     data_law = pd.read_csv(file)
-
 
     # 名義変数を削除する
     data_filt = data_law.drop(columns=["customer_id"])
@@ -33,4 +34,4 @@ def input_data(file: str):
     standarader = StandardScaler()
     data = standarader.fit_transform(data_filt)
 
-    return data
+    return data_filt, data
