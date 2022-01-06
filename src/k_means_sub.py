@@ -2,8 +2,9 @@
 k_meansによる処理を行う
 """
 
-from src.input_data import input_data
 from sklearn.cluster import KMeans
+
+from src.input_data import input_data
 
 
 def k_means(file: str, n_clusters: int):
@@ -33,8 +34,8 @@ def k_means(file: str, n_clusters: int):
 
     data, data_std = input_data(
         file)
-    k_means = KMeans(n_clusters, random_state=0)
-    clusters = k_means.fit_predict(data_std)
+    k_meaner = KMeans(n_clusters, random_state=0)
+    clusters = k_meaner.fit_predict(data_std)
     data["cluster"] = clusters
 
     return data, data_std
