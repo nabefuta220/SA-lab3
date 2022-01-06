@@ -2,7 +2,6 @@
 ファイルから入力を受け取り、整形する
 """
 import pandas as pd
-from pandas.io.stata import StataReader
 from sklearn.preprocessing import StandardScaler
 
 
@@ -31,7 +30,7 @@ def input_data(file: str):
     # 名義変数を削除する
     data_filt = data_law.drop(columns=["customer_id"])
 
-    sc = StandardScaler()
-    data = sc.fit_transform(data_filt)
+    standarader = StandardScaler()
+    data = standarader.fit_transform(data_filt)
 
     return data
