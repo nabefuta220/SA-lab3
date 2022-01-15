@@ -83,6 +83,10 @@ PC1  0.532650  0.513845  0.441831  0.470014          -0.190050
 PC2 -0.109719 -0.149198 -0.236745  0.127829          -0.945153
 
 ```
+
+<!-- [[[end]]] -->
+
+
 また、クラスタの分布の詳細、クラスタごとの統計の詳細は、それぞれ[output/k-means_clustering.csv](output/k-means_clustering.csv),[output/k-means_describe.csv](output/k-means_describe.csv)でみることができる。
 
 
@@ -99,50 +103,15 @@ PC2 -0.109719 -0.149198 -0.236745  0.127829          -0.945153
 
 その上で図1を見ると、それぞれのクラスタは1から順に、長く利用しているがあまり利用していない客層、加入したばかりであまり利用していない客層、利用回数は少なくなく、利用期間も幅がある通常利用客、利用回数が多い常連層だと考えられる。
 
-<!-- [[[end]]] -->
+## 凝集型階層的クラスタリングでの分析
+
+まず、`scipy.cluster.hierarchy`内の`linkage`メソッドを用いてテンドログラムを作成し、`scipy.cluster.hierarchy`内の`dendrogram`メソッドを用いてテンドログラムを表示した。
+
+また、`linkage`メソッドの返り値は[`クラスタA`,`クラスタB`,`2つのクラスタ間の距離`,`いま時点での併合したクラスタに含まれるデータ数`]の2次元配列となり、これが併合される順番に格納されている。
+
+今回行う3つのクラスタ間の計算方法は単調であることが保証されているため、最後から3番目の値をクラスタリングのしきい値とした。
+
+その値を元に、`scipy.cluster.hierarchy`内の`fcluster`メソッドを用いてクラスタリングを行った。
 
 
-<!-- [[[cog
-import cog
-file="issuer.py"
-cog.outl("\n```py")
-with open(file,"r") as f:
-    cog.outl(f.read())
-cog.outl("```")
-    ]]] -->
-
-```py
-"""
-ファイルを実行し、標準出力をファイルで返す
-"""
-
-import argparse
-import os
-import subprocess
-
-
-def inputer():
-    """
-    入力時のパーサー
-    """
-    arg = argparse.ArgumentParser()
-    arg.add_argument('command', nargs='*')
-    parse = arg.parse_args()
-    return parse.command
-
-
-if __name__ == '__main__':
-    command_line = inputer()
-    print(command_line)
-    out_file = f"output/{os.path.splitext(os.path.basename(command_line[1]))[0]}.txt"
-    print(out_file)
-    command = ['pipenv', 'run']+command_line
-    cp = subprocess.run(command, encoding='utf-8',
-                        stdout=subprocess.PIPE, check=True)
-
-    with open(out_file, 'w', encoding='UTF-8') as out_file:
-        out_file.write(f"$ {' '.join(command)}\n")
-        out_file.write(cp.stdout)
-
-```
-<!-- [[[end]]] -->
+ソースコードは[src/hierarchical_clustering.py](src/hierarchical_clustering.py)である。
