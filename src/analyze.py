@@ -26,4 +26,3 @@ def analyze_data(data: pd.DataFrame, file: str = None):
     if file is not None:
         data.to_csv(f"output/{file}_clustering.csv")
         describe.to_csv(f"output/{file}_describe.csv")
-
