@@ -25,7 +25,7 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint(root)
       run: |
-        pylint `ls |grep .py$|xargs`
+        pylint `ls |grep .py$|xargs` --disable='duplicate-code'
     - name: Analysing the code with pylint(src)
       run: |
         cd src && pylint `ls -R|grep .py$|xargs` 
