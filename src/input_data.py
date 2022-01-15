@@ -1,11 +1,13 @@
 """
 ファイルから入力を受け取り、整形する
 """
+from typing import Tuple
 import pandas as pd
+import numpy as np
 from sklearn.preprocessing import StandardScaler
 
 
-def input_data(file: str):
+def input_data(file: str)->Tuple[pd.DataFrame,np.ndarray]:
     """
     ファイルから入力を受け取り、整形する
 
