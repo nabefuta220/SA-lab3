@@ -30,6 +30,7 @@ def plot_data(data:pd.DataFrame, data_std:np.ndarray, title: str):
     print(f"compopnents :\n{pcaer.components_}")
     print(f"mean :\n{pcaer.mean_}")
     print(f"covariance :\n{pcaer.get_covariance()}")
+    
     fig = plt.figure(figsize=(6, 6))
     for i in data["cluster"].unique():
         tmp = pca_df.loc[pca_df["cluster"] == i]
