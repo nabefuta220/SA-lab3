@@ -14,21 +14,21 @@ python3.9.9
 
 ## 分析の流れについて
 
-まず、ファイルからのデータを[src/input_data.py](src/input_data.py)の`input_data`メソッド内で`pandas.read_csv`メソッドを用いて`DataFrame`を作成し、その中で名義変数である`customer_id`を削除した。
+まず、ファイルからのデータを[src/input_data.py](https://github.com/nabefuta220/SA-lab3/blob/main/src/input_data.py)の`input_data`メソッド内で`pandas.read_csv`メソッドを用いて`DataFrame`を作成し、その中で名義変数である`customer_id`を削除した。
 
 また、それらのデータを正規化したものも作成した。
 
 データをそれぞれの手法でクラスタリングした後、データの解析と表示を行った。
 
-まず、[src/analyze.py](src/analyze.py)内の`analyze_data`関数内で変数名を変更したものと、各クラスタごとに統計情報をそれぞれcsvファイルに出力した。
+まず、[src/analyze.py](https://github.com/nabefuta220/SA-lab3/blob/main/src/analyze.py)内の`analyze_data`関数内で変数名を変更したものと、各クラスタごとに統計情報をそれぞれcsvファイルに出力した。
 
-また、[src/visilze.py](src/visilze.py)内の`plot_data`メソッドでデータと名義変数に主成分分析を行い、2次元上にプロットした。
+また、[src/visilze.py](https://github.com/nabefuta220/SA-lab3/blob/main/src/visilze.py)内の`plot_data`メソッドでデータと名義変数に主成分分析を行い、2次元上にプロットした。
 
 ## k-meansでの分析
 
 `sklearn.cluster`内の`KMeans`メソッドを用いて行った。
 
-ソースコードは[k-menas.py](k_means.py)である。
+ソースコードは[k-menas.py](https://github.com/nabefuta220/SA-lab3/blob/main/k_means.py)である。
 
 ### 実行結果
 
@@ -84,7 +84,7 @@ PC2 -0.109719 -0.149198 -0.236745  0.127829          -0.945153
 ```
 <!-- [[[end]]] -->
 
-また、クラスタの分布の詳細、クラスタごとの統計の詳細は、それぞれ[output/k-means_clustering.csv](output/k-means_clustering.csv),[output/k-means_describe.csv](output/k-means_describe.csv)でみることができる。
+また、クラスタの分布の詳細、クラスタごとの統計の詳細は、それぞれ[output/k-means_clustering.csv](https://github.com/nabefuta220/SA-lab3/blob/main/output/k-means_clustering.csv),[output/k-means_describe.csv](https://github.com/nabefuta220/SA-lab3/blob/main/output/k-means_describe.csv)でみることができる。
 
 ![fig1](output/k-means_distribute.png)
 
@@ -108,11 +108,11 @@ PC2 -0.109719 -0.149198 -0.236745  0.127829          -0.945153
 
 その値を元に、`scipy.cluster.hierarchy`内の`fcluster`メソッドを用いてクラスタリングを行った。
 
-ソースコードは[src/hierarchical_clustering.py](src/hierarchical_clustering.py)である。
+ソースコードは[src/hierarchical_clustering.py](https://github.com/nabefuta220/SA-lab3/blob/main/src/hierarchical_clustering.py)である。
 
 ### 単連結法でのクラスタリング
 
-ソースコードは[single.py](single.py)である。
+ソースコードは[single.py](https://github.com/nabefuta220/SA-lab3/blob/main/single.py)である。
 
 #### 実行結果
 
@@ -168,7 +168,7 @@ PC2 -0.109719 -0.149198 -0.236745  0.127829          -0.945153
 ```
 <!-- [[[end]]] -->
 
-また、データのテンドログラム、クラスタの分布の詳細、クラスタごとの統計の詳細は、それぞれ[output/single_dendrogram_data.csv](output/single_dendrogram_data.csv),[output/single_clustering.csv](output/single_clustering.csv),[output/single_describe.csv](output/single_describe.csv)でみることができる。
+また、データのテンドログラム、クラスタの分布の詳細、クラスタごとの統計の詳細は、それぞれ[output/single_dendrogram_data.csv](https://github.com/nabefuta220/SA-lab3/blob/main/output/single_dendrogram_data.csv),[output/single_clustering.csv](https://github.com/nabefuta220/SA-lab3/blob/main/output/single_clustering.csv),[output/single_describe.csv](https://github.com/nabefuta220/SA-lab3/blob/main/output/single_describe.csv)でみることができる。
 
 ![fig3](output/single_dendrogram.png)
 
@@ -190,7 +190,7 @@ PC2 -0.109719 -0.149198 -0.236745  0.127829          -0.945153
 
 ### 完全連結法でのクラスタリング
 
-ソースコードは[complete.py](complete.py)である。
+ソースコードは[complete.py](https://github.com/nabefuta220/SA-lab3/blob/main/complete.py)である。
 
 #### 実行結果
 
@@ -246,7 +246,7 @@ PC2 -0.109719 -0.149198 -0.236745  0.127829          -0.945153
 ```
 <!-- [[[end]]] -->
 
-また、データのテンドログラム、クラスタの分布の詳細、クラスタごとの統計の詳細は、それぞれ[output/complete_dendrogram_data.csv](output/complete_dendrogram_data.csv),[output/complete_clustering.csv](output/complete_clustering.csv),[output/complete_describe.csv](output/complete_describe.csv)でみることができる。
+また、データのテンドログラム、クラスタの分布の詳細、クラスタごとの統計の詳細は、それぞれ[output/complete_dendrogram_data.csv](https://github.com/nabefuta220/SA-lab3/blob/main/output/complete_dendrogram_data.csv),[output/complete_clustering.csv](https://github.com/nabefuta220/SA-lab3/blob/main/output/complete_clustering.csv),[output/complete_describe.csv](https://github.com/nabefuta220/SA-lab3/blob/main/output/complete_describe.csv)でみることができる。
 
 ![fig3](output/complete_dendrogram.png)
 
@@ -268,7 +268,7 @@ PC2 -0.109719 -0.149198 -0.236745  0.127829          -0.945153
 
 ### 群平均法でのクラスタリング
 
-ソースコードは[average.py](average.py)である。
+ソースコードは[average.py](https://github.com/nabefuta220/SA-lab3/blob/main/average.py)である。
 
 #### 実行結果
 
@@ -324,7 +324,7 @@ PC2 -0.109719 -0.149198 -0.236745  0.127829          -0.945153
 ```
 <!-- [[[end]]] -->
 
-また、データのテンドログラム、クラスタの分布の詳細、クラスタごとの統計の詳細は、それぞれ[output/average_dendrogram_data.csv](output/average_dendrogram_data.csv),[output/average_clustering.csv](output/average_clustering.csv),[output/average_describe.csv](output/average_describe.csv)でみることができる。
+また、データのテンドログラム、クラスタの分布の詳細、クラスタごとの統計の詳細は、それぞれ[output/average_dendrogram_data.csv](https://github.com/nabefuta220/SA-lab3/blob/main/output/average_dendrogram_data.csv),[output/average_clustering.csv](https://github.com/nabefuta220/SA-lab3/blob/main/output/average_clustering.csv),[output/average_describe.csv](https://github.com/nabefuta220/SA-lab3/blob/main/output/average_describe.csv)でみることができる。
 
 ![fig3](output/average_dendrogram.png)
 
