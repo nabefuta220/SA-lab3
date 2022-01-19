@@ -11,6 +11,7 @@ python3.9.9
 - pandas(1.3.5)
 - matplotlib (3.5.1)
 - scikit-learn (1.0.2)
+- scipy (1.7.3)
 
 ## 分析の流れについて
 
